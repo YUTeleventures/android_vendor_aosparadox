@@ -49,11 +49,16 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/sshd/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
+# userinit support
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+	
 # init.d support
 PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
 	vendor/sshd/prebuilt/common/etc/init.d/00sshd:system/etc/init.d/00sshd
-	
+
+# Bring in camera effects	
 PRODUCT_COPY_FILES +=  \
     vendor/sshd/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
     vendor/sshd/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
