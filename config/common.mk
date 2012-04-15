@@ -62,6 +62,10 @@ PRODUCT_PACKAGES += \
 	Superuser \
     su
 
+# Extra tools in SSHD
+PRODUCT_PACKAGES += \
+    openvpn	
+	
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
