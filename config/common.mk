@@ -64,7 +64,10 @@ PRODUCT_PACKAGES += \
 
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
-    openvpn	
+    openvpn \
+    e2fsck \
+    mke2fs \
+    tune2fs
 	
 # Openssh
 PRODUCT_PACKAGES += \
