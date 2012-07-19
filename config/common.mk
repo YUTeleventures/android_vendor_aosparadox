@@ -62,5 +62,15 @@ PRODUCT_PACKAGES += \
 	Superuser \
     su
 
+# Openssh
+PRODUCT_PACKAGES += \
+    scp \
+    sftp \
+    ssh \
+    sshd \
+    sshd_config \
+    ssh-keygen \
+    start-ssh \
+	
 # overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
