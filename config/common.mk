@@ -70,7 +70,11 @@ PRODUCT_PACKAGES += \
     sshd \
     sshd_config \
     ssh-keygen \
-    start-ssh \
+    start-ssh
+
+# rsync
+PRODUCT_PACKAGES += \
+    rsync
 	
 # overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
