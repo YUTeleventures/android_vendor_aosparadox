@@ -29,6 +29,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
+# Enable ADB authentication
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/sshd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
