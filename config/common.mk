@@ -30,6 +30,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
 	vendor/sshd/prebuilt/common/etc/init.d/00sshd:system/etc/init.d/00sshd
+	
+# SELinux filesystem labels
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel	
 
 # Embed SuperUser
 SUPERUSER_EMBEDDED := true	
