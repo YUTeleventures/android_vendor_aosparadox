@@ -32,3 +32,6 @@ PRODUCT_PACKAGES += \
 	CellBroadcastReceiver \
 	Development \
 	Launcher3
+
+# overlays
+PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
