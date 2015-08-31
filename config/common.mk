@@ -43,5 +43,3 @@ PRODUCT_PACKAGES += \
 
 # overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
-
--include vendor/sshd/sepolicy/sepolicy.mk

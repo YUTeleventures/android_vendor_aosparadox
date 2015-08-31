@@ -3,8 +3,9 @@
 # inherit from SSHD
 #
 
-BOARD_SEPOLICY_DIRS := \
+BOARD_SEPOLICY_DIRS += \
     vendor/sshd/sepolicy
 
-BOARD_SEPOLICY_UNION := \
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
     mac_permissions.xml
