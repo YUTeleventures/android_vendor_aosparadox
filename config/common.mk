@@ -26,6 +26,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1	
 
+# Signature compatibility validation
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
+
 # init.d support
 PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
