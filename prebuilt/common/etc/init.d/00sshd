@@ -1,12 +1,6 @@
 #!/system/bin/sh
-
+L="log -p i -t SSHD"
 
 echo "==================================="
 echo " Sungsonic™HD booting :)"
 echo "==================================="
-
-
-# Wait for system to be "up" before doing other stuff
-until [ $(busybox pgrep com.android.systemui) ] ; do
-    busybox sleep 1
-done
