@@ -23,6 +23,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
 	ro.setupwizard.enterprise_mode=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.selinux=1	
+
 # init.d support
 PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
