@@ -3,7 +3,7 @@ PRODUCT_BRAND ?= SSHD
 # Boot animation
 PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
-
+	
 # SSHD init.rc
 PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/etc/init.sshd.rc:root/init.sshd.rc
@@ -31,10 +31,15 @@ PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
 	vendor/sshd/prebuilt/common/etc/init.d/00sshd:system/etc/init.d/00sshd
 
+# Embed SuperUser
+SUPERUSER_EMBEDDED := true	
+
 PRODUCT_PACKAGES += \
 	CellBroadcastReceiver \
 	Development \
-	Launcher3
+	Launcher3 \
+	Superuser \
+    su
 
 # overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
