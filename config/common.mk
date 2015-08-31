@@ -24,7 +24,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.enterprise_mode=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1	
+    ro.build.selinux=1
+	
+# Backup Tool
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/sshd/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/sshd/prebuilt/common/bin/50-sshd.sh:system/addon.d/50-sshd.sh \
+	vendor/sshd/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
+	vendor/sshd/prebuilt/common/etc/backup.conf:system/etc/backup.conf \
+    vendor/sshd/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
