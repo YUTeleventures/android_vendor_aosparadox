@@ -113,3 +113,6 @@ PRODUCT_PACKAGES += \
 	
 # overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
+
+# easy way to extend to add more packages
+$(call prepend-product-if-exists, vendor/extra/product.mk)
