@@ -82,7 +82,14 @@ PRODUCT_PACKAGES += \
     fsck.f2fs \
     fibmap.f2fs \
     ntfsfix \
-    ntfs-3g
+    ntfs-3g \
+    gdbserver \
+    micro_bench \
+    oprofiled \
+    procmem \
+    procrank \
+    sqlite3 \
+    strace
 
 # Openssh
 PRODUCT_PACKAGES += \
