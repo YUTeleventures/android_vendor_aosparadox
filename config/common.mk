@@ -139,3 +139,6 @@ PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
 
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
+
+# SSHD Versioning
+-include vendor/sshd/config/version.mk
