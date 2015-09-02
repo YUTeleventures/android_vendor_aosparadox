@@ -69,7 +69,6 @@ PRODUCT_PACKAGES += \
     mke2fs \
     tune2fs \
     bash \
-    vim \
     nano \
     htop \
     powertop \
@@ -85,8 +84,6 @@ PRODUCT_PACKAGES += \
     gdbserver \
     micro_bench \
     oprofiled \
-    procmem \
-    procrank \
     sqlite3 \
     strace
 
