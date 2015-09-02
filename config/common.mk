@@ -55,10 +55,12 @@ PRODUCT_COPY_FILES += \
 # Embed SuperUser
 SUPERUSER_EMBEDDED := true	
 
+# Required SSHD packages
 PRODUCT_PACKAGES += \
 	CellBroadcastReceiver \
 	Development \
 	Launcher3 \
+	BluetoothExt \
 	Superuser \
     su
 
