@@ -63,7 +63,15 @@ PRODUCT_PACKAGES += \
 	BluetoothExt \
 	Superuser \
     su
+	
+# Optional SSHD packages
+PRODUCT_PACKAGES += \
+   	libemoji
 
+# Custom SSHD packages	
+PRODUCT_PACKAGES += \
+    Eleven
+	
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
     libsepol \
