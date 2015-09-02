@@ -62,6 +62,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES +=  \
     vendor/sshd/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
     vendor/sshd/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+
+# Enable SIP+VoIP on all targets
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml	
 	
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
