@@ -1,6 +1,2 @@
 #!/system/bin/sh
-L="log -p i -t SSHD"
-
-echo "==================================="
-echo " Sungsonic™HD booting :)"
-echo "==================================="
+log -p i -t start "Welcome to Android `getprop ro.build.version.release` / SSHD-Mod-`getprop ro.sshd.version`";

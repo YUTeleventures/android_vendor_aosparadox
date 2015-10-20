@@ -26,13 +26,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=0
+
+# by default, do not update the recovery with system updates
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
+	
+# Disable excessive dalvik debug messages
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.debug.alloc=0	
+
+ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
+endif
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
+
+# Embed SuperUser
+SUPERUSER_EMBEDDED := true
 
 # Backup Tool
 ifneq ($(WITH_GMS),true)
@@ -49,9 +64,11 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/sshd/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
+ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
     vendor/sshd/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+endif	
 	
 # init.d support
 PRODUCT_COPY_FILES += \
@@ -63,6 +80,10 @@ PRODUCT_COPY_FILES +=  \
     vendor/sshd/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
     vendor/sshd/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
+# Copy over added mimetype supported in libcore.net.MimeUtils
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties	
+	
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
@@ -75,64 +96,41 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/sshd/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel	
 
-# Embed SuperUser
-SUPERUSER_EMBEDDED := true	
-
 # Required SSHD packages
 PRODUCT_PACKAGES += \
 	CellBroadcastReceiver \
 	Development \
 	Launcher3 \
-	BluetoothExt \
+	libemoji \
+	Terminal \
+	SpareParts \
+	Eleven \
 	Superuser \
     su
-	
-# Optional SSHD packages
-PRODUCT_PACKAGES += \
-   	libemoji
-
-# Custom SSHD packages	
-PRODUCT_PACKAGES += \
-    Eleven
+   	
 	
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
-    libsepol \
+    openvpn \
     e2fsck \
     mke2fs \
     tune2fs \
-    bash \
-    nano \
-    htop \
-    powertop \
-    lsof \
     mount.exfat \
     fsck.exfat \
     mkfs.exfat \
-    mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
     ntfsfix \
     ntfs-3g \
-    gdbserver \
-    micro_bench \
-    oprofiled \
-    sqlite3 \
-    strace
+	sqlite3
 
-# Openssh
+# Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
-    scp \
-    sftp \
-    ssh \
-    sshd \
-    sshd_config \
-    ssh-keygen \
-    start-ssh
+    libffmpeg_extractor \
+    libffmpeg_omx \
+    media_codecs_ffmpeg.xml
 
-# rsync
-PRODUCT_PACKAGES += \
-    rsync
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.sf.omx-plugin=libffmpeg_omx.so \
+    media.sf.extractor-plugin=libffmpeg_extractor.so
 	
 # SSHD overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
