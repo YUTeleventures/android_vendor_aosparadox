@@ -62,10 +62,12 @@ PRODUCT_COPY_FILES += \
 	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
 	vendor/sshd/prebuilt/common/etc/init.d/00sshd:system/etc/init.d/00sshd
 
-# Bring in camera effects	
-PRODUCT_COPY_FILES +=  \
-    vendor/sshd/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/sshd/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+# Camera Effects 
+ ifneq ($(filter sshd_flo sshd_flounder sshd_hammerhead sshd_shamu,$(TARGET_PRODUCT)),) 
+ PRODUCT_COPY_FILES +=  \ 
+    vendor/sshd/prebuilt/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \ 
+    vendor/sshd/prebuilt/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd 
+endif 
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
