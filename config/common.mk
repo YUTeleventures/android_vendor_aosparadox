@@ -100,6 +100,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     librsjni	
 
+# Chain fire SuperSU
+ PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/supersu/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/sshd/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+ 
 # Required SSHD packages
 PRODUCT_PACKAGES += \
 	BluetoothExt \
