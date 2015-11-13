@@ -16,19 +16,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	keyguard.no_require_sim=true \
-	ro.com.android.dataroaming=false \
-	ro.com.android.wifi-watchlist=GoogleGuest \
-	ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-	ro.setupwizard.enterprise_mode=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.root_access=0
-
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 	
@@ -170,6 +157,9 @@ PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
 
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
+
+# SSHD Prop Tweaks & Fixes.
+-include vendor/sshd/config/sshd_prop.mk
 
 # SSHD Versioning
 -include vendor/sshd/config/version.mk
