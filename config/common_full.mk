@@ -11,4 +11,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vim \
     zip \
-    unrar
+    unrar \
+    wget \
+    zip
