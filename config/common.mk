@@ -16,6 +16,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+# Proprietary latinime libs needed for Keyboard swyping
+ifneq ($(filter arm64,$(TARGET_ARCH)),)
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+else
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+endif
+
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 	
