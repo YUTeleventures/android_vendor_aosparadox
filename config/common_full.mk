@@ -5,12 +5,17 @@ $(call inherit-product, vendor/sshd/config/common.mk)
 PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     PhotoTable \
-    PhotoPhase
+    PhotoPhase \
+	Screencast
 
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
-    vim \
-    zip \
+    7z \
+    bash \
+    bzip2 \
+    curl \
     unrar \
+    unzip \
+    vim \
     wget \
     zip

@@ -94,33 +94,62 @@ PRODUCT_COPY_FILES += \
 	
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel	
+    vendor/sshd/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+
+# Include librsjni explicitly to workaround GMS issue
+PRODUCT_PACKAGES += \
+    librsjni	
 
 # Required SSHD packages
 PRODUCT_PACKAGES += \
-	CellBroadcastReceiver \
+	BluetoothExt \
 	Development \
 	Launcher3 \
+	Trebuchet \
+	ExactCalculator \
 	libemoji \
 	Terminal \
 	SpareParts \
-	Eleven \
-	Superuser \
-    su
+	Eleven
    		
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
-    openvpn \
-    e2fsck \
+    libsepol \
     mke2fs \
     tune2fs \
+    nano \
+    htop \
+    mkfs.ntfs \
+    fsck.ntfs \
+    mount.ntfs \
+    gdbserver \
+    micro_bench \
+    oprofiled \
+    sqlite3 \
+    strace \
+    pigz
+
+WITH_EXFAT ?= true
+ifeq ($(WITH_EXFAT),true)
+TARGET_USES_EXFAT := true
+PRODUCT_PACKAGES += \
     mount.exfat \
     fsck.exfat \
-    mkfs.exfat \
-    ntfsfix \
-    ntfs-3g \
-	sqlite3
+    mkfs.exfat
+endif
 
+# rsync
+PRODUCT_PACKAGES += \
+    rsync
+
+# These packages are excluded from user builds
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    procmem \
+    procrank \
+    su
+endif
+	
 # Stagefright FFMPEG plugin
 #PRODUCT_PACKAGES += \
     #libffmpeg_extractor \
