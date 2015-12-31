@@ -1,6 +1,3 @@
-add_lunch_combo sshd_angler-eng
-add_lunch_combo sshd_angler-user
-add_lunch_combo sshd_shamu-eng
-add_lunch_combo sshd_shamu-user
-add_lunch_combo sshd_hammerhead-eng
-add_lunch_combo sshd_hammerhead-user
+add_lunch_combo sshd_angler-userdebug
+add_lunch_combo sshd_shamu-userdebug
+add_lunch_combo sshd_hammerhead-userdebug
