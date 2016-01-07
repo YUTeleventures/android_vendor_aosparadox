@@ -99,7 +99,7 @@ PRODUCT_PACKAGES += \
 	BluetoothExt \
 	Development \
 	Launcher3 \
-	Trebuchet \
+	SonicLauncher \
 	ExactCalculator \
 	libemoji \
 	Terminal \
