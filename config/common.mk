@@ -172,6 +172,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # SSHD overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
 
+# Layers Backup
+PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/common/bin/71-layers.sh:system/addon.d/71-layers.sh
+ 
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
 
