@@ -113,7 +113,9 @@ PRODUCT_PACKAGES += \
 	libemoji \
 	Terminal \
 	SpareParts \
-	Eleven
+	Eleven \
+    SnapdragonCamera \
+	LockClock
    		
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
