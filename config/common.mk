@@ -107,14 +107,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	BluetoothExt \
 	Development \
-	Launcher3 \
 	SonicLauncher \
 	ExactCalculator \
 	libemoji \
 	Terminal \
 	SpareParts \
 	Eleven \
-    SnapdragonCamera \
 	LockClock
    		
 # Extra tools in SSHD
