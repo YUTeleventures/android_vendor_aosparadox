@@ -103,6 +103,10 @@ PRODUCT_PACKAGES += \
     vendor/sshd/prebuilt/supersu/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
     vendor/sshd/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
  
+# Layers Manager
+  PRODUCT_COPY_FILES += \
+  vendor/sshd/prebuilt/common/app/LayersManager/layersmanager.apk:system/app/LayersManager/layersmanager.apk
+ 
 # Required SSHD packages
 PRODUCT_PACKAGES += \
 	BluetoothExt \
