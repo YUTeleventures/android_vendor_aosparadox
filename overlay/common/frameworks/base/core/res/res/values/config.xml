@@ -24,4 +24,10 @@
 
     <bool name="config_cellBroadcastAppLinks">true</bool>
 	
+	<!-- Global Actions -->
+    <string-array translatable="false" name="config_globalActionsList">
+        <item>power</item>
+        <item>reboot</item>
+    </string-array>
+	
 </resources>
