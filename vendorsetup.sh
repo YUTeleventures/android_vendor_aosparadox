@@ -1,3 +1,7 @@
 add_lunch_combo sshd_angler-userdebug
 add_lunch_combo sshd_shamu-userdebug
 add_lunch_combo sshd_hammerhead-userdebug
+add_lunch_combo sshd_tomato-userdebug
+add_lunch_combo sshd_lettuce-userdebug
+add_lunch_combo sshd_sambar-userdebug
+add_lunch_combo sshd_jalebi-userdebug
