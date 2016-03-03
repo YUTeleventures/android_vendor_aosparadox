@@ -43,5 +43,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.est_max_time=600 \
     ro.facelock.use_intro_anim=false
 
+# Debuggable & Insecure ADB.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.service.adb.enable=1 \
+	persist.service.debuggable=1 \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0
 
 	
