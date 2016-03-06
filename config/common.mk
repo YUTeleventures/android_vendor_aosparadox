@@ -102,7 +102,11 @@ PRODUCT_PACKAGES += \
  PRODUCT_COPY_FILES += \
     vendor/sshd/prebuilt/supersu/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
     vendor/sshd/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
- 
+
+# SSHD Custom BusyBox With Full SELinux Enabled
+ PRODUCT_COPY_FILES += \
+    vendor/sshd/prebuilt/busybox/SSHD-BusyBox.zip:system/addon.d/SSHD-BusyBox.zip
+	
 # Layers Manager
   PRODUCT_COPY_FILES += \
   vendor/sshd/prebuilt/common/app/LayersManager/layersmanager.apk:system/app/LayersManager/layersmanager.apk
