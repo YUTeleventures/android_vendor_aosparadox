@@ -121,7 +121,8 @@ PRODUCT_PACKAGES += \
    		
 # Extra tools in SSHD
 PRODUCT_PACKAGES += \
-    libsepol \
+    Busybox \
+	libsepol \
     mke2fs \
     tune2fs \
     nano \
