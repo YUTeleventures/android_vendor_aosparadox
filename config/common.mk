@@ -20,8 +20,16 @@ PRODUCT_COPY_FILES += \
 	
 # APN list
 PRODUCT_COPY_FILES += \
-    vendor/yuos/prebuilt/common//apns-conf.xml:system/etc/apns-conf.xml	
+    vendor/yuos/prebuilt/common/apns-conf.xml:system/etc/apns-conf.xml	
 
+# Proprietary latinime libs needed for Keyboard swyping
+ ifneq ($(filter arm64,$(TARGET_ARCH)),)
+ PRODUCT_COPY_FILES += \
+     vendor/yuos/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+ else
+ PRODUCT_COPY_FILES += \
+     vendor/yuos/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+ endif
 	
 # YUOS-Packages
  PRODUCT_PACKAGES += \
