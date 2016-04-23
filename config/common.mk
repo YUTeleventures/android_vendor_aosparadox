@@ -21,6 +21,17 @@ PRODUCT_COPY_FILES += \
 # APN list
 PRODUCT_COPY_FILES += \
     vendor/yuos/prebuilt/common//apns-conf.xml:system/etc/apns-conf.xml	
+
+	
+# YUOS-Packages
+ PRODUCT_PACKAGES += \
+     Browser \
+	 Launcher2 \
+     Launcher3 \
+     SnapdragonCamera \
+     libemoji \
+     libsepol \
+     messaging
  
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
