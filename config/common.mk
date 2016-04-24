@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
      messaging
 
 # YUOS overlays
- PRODUCT_PACKAGE_OVERLAYS := vendor/yuos/overlay/common
+ PRODUCT_PACKAGE_OVERLAYS := vendor/yuos/overlay
  
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
