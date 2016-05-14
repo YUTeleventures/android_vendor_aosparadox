@@ -34,9 +34,9 @@ PRODUCT_COPY_FILES += \
 # YUOS-Packages
  PRODUCT_PACKAGES += \
      Browser \
-	 Launcher2 \
+     Launcher2 \
      Launcher3 \
-     SnapdragonCamera \
+     Snap \
      libemoji \
      libsepol \
      messaging
