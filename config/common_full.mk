@@ -1,7 +1,7 @@
-# Inherit common SSHD stuff
-$(call inherit-product, vendor/sshd/config/common.mk)
+# Inherit common YUOS stuff
+$(call inherit-product, vendor/yuos/config/common.mk)
 
-# Optional yu-aosp packages
+# Optional YUOS packages
 PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     PhotoTable \

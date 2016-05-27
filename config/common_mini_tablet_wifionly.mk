@@ -1,2 +1,2 @@
-# Inherit common SSHD stuff
-$(call inherit-product, vendor/sshd/config/common.mk)
+# Inherit common YUOS stuff
+$(call inherit-product, vendor/yuos/config/common.mk)

@@ -1,12 +1,12 @@
-PRODUCT_BRAND ?= SSHD
+PRODUCT_BRAND ?= YUOS
 
 # Boot animation
 PRODUCT_COPY_FILES += \
-	vendor/sshd/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
+	vendor/yuos/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
 	
-# SSHD init.rc
+# YU init.rc
 PRODUCT_COPY_FILES += \
-	vendor/sshd/prebuilt/common/etc/init.sshd.rc:root/init.sshd.rc
+	vendor/yuos/prebuilt/common/etc/init.yu.rc:root/init.yu.rc
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -19,10 +19,10 @@ endif
 # Proprietary latinime libs needed for Keyboard swyping
 ifneq ($(filter arm64,$(TARGET_ARCH)),)
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+    vendor/yuos/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+    vendor/yuos/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
 endif
 
 # by default, do not update the recovery with system updates
@@ -42,45 +42,35 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
-# Embed SuperUser
-SUPERUSER_EMBEDDED := true
-
 # Backup Tool
 ifneq ($(WITH_GMS),true)
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/sshd/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/sshd/prebuilt/common/bin/50-sshd.sh:system/addon.d/50-sshd.sh \
-	vendor/sshd/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
-	vendor/sshd/prebuilt/common/etc/backup.conf:system/etc/backup.conf \
-    vendor/sshd/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/yuos/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/yuos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/yuos/prebuilt/common/bin/50-yu.sh:system/addon.d/50-yu.sh \
+	vendor/yuos/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
+	vendor/yuos/prebuilt/common/etc/backup.conf:system/etc/backup.conf \
+    vendor/yuos/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 endif
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
+    vendor/yuos/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/yuos/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif	
 	
 # init.d support
 PRODUCT_COPY_FILES += \
-	vendor/sshd/prebuilt/common/bin/sysinit:system/bin/sysinit \
-	vendor/sshd/prebuilt/common/etc/init.d/00sshd:system/etc/init.d/00sshd
-
-# Camera Effects
- ifneq ($(filter sshd_flo sshd_flounder sshd_hammerhead sshd_shamu,$(TARGET_PRODUCT)),)
- PRODUCT_COPY_FILES +=  \
-    vendor/sshd/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-    vendor/sshd/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
-endif 
+	vendor/yuos/prebuilt/common/bin/sysinit:system/bin/sysinit \
+	vendor/yuos/prebuilt/common/etc/init.d/00yu:system/etc/init.d/00yu
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties	
+    vendor/yuos/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties	
 	
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -92,40 +82,24 @@ PRODUCT_COPY_FILES += \
 	
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+    vendor/yuos/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # Include librsjni explicitly to workaround GMS issue
 PRODUCT_PACKAGES += \
-    librsjni	
-
-# Chain fire SuperSU
- PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/supersu/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/sshd/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
-
-# SSHD Custom BusyBox With Full SELinux Enabled
- PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/busybox/SSHD-BusyBox.zip:system/addon.d/SSHD-BusyBox.zip
-	
-# Layers Manager
-  PRODUCT_COPY_FILES += \
-  vendor/sshd/prebuilt/common/app/LayersManager/layersmanager.apk:system/app/LayersManager/layersmanager.apk
+    librsjni
  
-# Required SSHD packages
+# Required YUOS packages
 PRODUCT_PACKAGES += \
 	BluetoothExt \
 	Development \
-	SonicLauncher \
+	Launcher3 \
 	ExactCalculator \
 	libemoji \
 	Terminal \
-	SpareParts \
-	Eleven \
-	LockClock
+	SpareParts
    		
-# Extra tools in SSHD
+# Extra tools in YUOS
 PRODUCT_PACKAGES += \
-    Busybox \
 	libsepol \
     mke2fs \
     tune2fs \
@@ -158,8 +132,7 @@ PRODUCT_PACKAGES += \
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
     procmem \
-    procrank \
-    su
+    procrank
 endif
 	
 # Stagefright FFMPEG plugin
@@ -172,18 +145,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.sf.omx-plugin=libffmpeg_omx.so \
     media.sf.extractor-plugin=libffmpeg_extractor.so
 	
-# SSHD overlays
-PRODUCT_PACKAGE_OVERLAYS := vendor/sshd/overlay/common
-
-# Layers Backup
-PRODUCT_COPY_FILES += \
-    vendor/sshd/prebuilt/common/bin/71-layers.sh:system/addon.d/71-layers.sh
+# YUOS overlays
+PRODUCT_PACKAGE_OVERLAYS := vendor/yuos/overlay/common
  
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
 
-# SSHD Prop Tweaks & Fixes.
--include vendor/sshd/config/sshd_prop.mk
+# YUOS Prop Tweaks & Fixes.
+-include vendor/yuos/config/sshd_prop.mk
 
-# SSHD Versioning
--include vendor/sshd/config/version.mk
+# YUOS Versioning
+-include vendor/yuos/config/version.mk

@@ -1,7 +1,7 @@
 #
 # This policy configuration will be used by all products that
-# inherit from SSHD
+# inherit from YUOS
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/sshd/sepolicy
+    vendor/yuos/sepolicy
