@@ -92,6 +92,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	BluetoothExt \
 	Development \
+	SnapdragonCamera \
 	Launcher3 \
 	ExactCalculator \
 	libemoji \
