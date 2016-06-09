@@ -1,4 +1,4 @@
-# Inherit common YUOS stuff
+#  Inherit common YUOS stuff
 $(call inherit-product, vendor/yuos/config/common.mk)
 
 # Optional YUOS packages
