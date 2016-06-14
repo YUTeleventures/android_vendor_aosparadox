@@ -148,6 +148,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	
 # YUOS overlays
 PRODUCT_PACKAGE_OVERLAYS := vendor/yuos/overlay/common
+
+# YUOS Extra Tools
+FINISHER_SCRIPT := vendor/yuos/tools/finisher
+SQUISHER_SCRIPT := vendor/yuos/tools/squisher
+CHANGELOG_SCRIPT := vendor/yuos/tools/changelog.sh
  
 # easy way to extend to add more packages
 $(call prepend-product-if-exists, vendor/extra/product.mk)
