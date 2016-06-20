@@ -128,13 +128,6 @@ endif
 # rsync
 PRODUCT_PACKAGES += \
     rsync
-
-# These packages are excluded from user builds
-ifneq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_PACKAGES += \
-    procmem \
-    procrank
-endif
 	
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
