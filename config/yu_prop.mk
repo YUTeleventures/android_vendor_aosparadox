@@ -44,4 +44,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.service.debuggable=1 \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0
-edif	
+endif
