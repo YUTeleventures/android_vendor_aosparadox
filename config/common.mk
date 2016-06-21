@@ -147,7 +147,7 @@ CHANGELOG_SCRIPT := vendor/yuos/tools/changelog.sh
 $(call prepend-product-if-exists, vendor/extra/product.mk)
 
 # YUOS Prop Tweaks & Fixes.
--include vendor/yuos/config/sshd_prop.mk
+-include vendor/yuos/config/yu_prop.mk
 
 # YUOS Versioning
 -include vendor/yuos/config/version.mk

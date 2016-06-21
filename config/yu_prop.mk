@@ -23,12 +23,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
-# SSHD Prop Tweaks & Fixes.
+# YUOS Prop Tweaks & Fixes.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.fw.bg_apps_limit=20 \
     pm.sleep.mode=1 \
-    wifi.supplicant_scan_interval=180 \
-    windowsmgr.max_events_per_sec=150 \
     debug.performance.tuning=1 \
     ro.ril.power_collapse=1 \
     persist.service.lgospd.enable=0 \
@@ -40,11 +37,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.est_max_time=600 \
     ro.facelock.use_intro_anim=false
 
-# Debuggable & Insecure ADB.
+# Make ADB Debuggable & Insecure for Eng Builds.
+ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.service.adb.enable=1 \
-	persist.service.debuggable=1 \
+    persist.service.debuggable=1 \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0
-
-	
+edif	
