@@ -151,3 +151,6 @@ $(call prepend-product-if-exists, vendor/extra/product.mk)
 
 # YUOS Versioning
 -include vendor/yuos/config/version.mk
+
+# YUOS Audio files
+-include vendor/yuos/config/yu_audio.mk
