@@ -21,7 +21,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.network_required=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
+    ro.build.selinux=1 \
+    ro.adb.secure=1
 
 # YUOS Prop Tweaks & Fixes.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -36,12 +37,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.lively_timeout=2500 \
     ro.facelock.est_max_time=600 \
     ro.facelock.use_intro_anim=false
-
-# Make ADB Debuggable & Insecure for Eng Builds.
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.service.adb.enable=1 \
-    persist.service.debuggable=1 \
-    persist.sys.usb.config=mtp,adb \
-    ro.adb.secure=0
-endif
