@@ -20,6 +20,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.enterprise_mode=1 \
 	ro.setupwizard.network_required=false
 
+# Force Asia/Calcutta timezone
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.timezone=Asia/Calcutta
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1 \
     ro.adb.secure=1
